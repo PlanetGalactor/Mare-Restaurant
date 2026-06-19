@@ -56,15 +56,14 @@ const Hero = ({ lang }) => {
           marginBottom: '50px'
         }}
       >
-        {/* Original Logo in Center - filter applied to invert to white on dark background */}
         <img 
-          src="/assets/logos/logo_transparent_dark.png" 
+          src="/assets/logos/logo_white_text_colored_strokes.png" 
           alt="Maré Logo" 
           style={{
             width: '340px',
             maxWidth: '90%',
             height: 'auto',
-            filter: 'brightness(0) invert(1) drop-shadow(0 10px 25px rgba(255,255,255,0.15))',
+            filter: 'drop-shadow(0 10px 25px rgba(0,0,0,0.4))',
             margin: '8px 0'
           }}
         />

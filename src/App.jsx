@@ -82,14 +82,13 @@ function App() {
             }}
           >
             <img
-              src={isScrolled ? '/assets/logos/logo_transparent_light.png' : '/assets/logos/logo_transparent_dark.png'}
+              src={isScrolled ? '/assets/logos/logo_transparent_light.png' : '/assets/logos/logo_white_text_colored_strokes.png'}
               alt="Maré Logo"
               style={{
                 height: '100%',
                 width: 'auto',
                 objectFit: 'contain',
-                filter: isScrolled ? 'none' : 'brightness(0) invert(1)',
-                transition: 'filter 0.3s ease'
+                transition: 'all 0.3s ease'
               }}
             />
           </div>

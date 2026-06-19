@@ -54,13 +54,12 @@ const Footer = ({ lang }) => {
           {/* Logo PNG image in footer */}
           <div style={{ height: '55px', marginBottom: '16px' }}>
             <img 
-              src="/assets/logos/logo_transparent_dark.png" 
+              src="/assets/logos/logo_white_text_colored_strokes.png" 
               alt="Maré Logo" 
               style={{
                 height: '100%',
                 width: 'auto',
-                objectFit: 'contain',
-                filter: 'brightness(0) invert(1)'
+                objectFit: 'contain'
               }}
             />
           </div>
