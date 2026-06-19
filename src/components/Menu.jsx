@@ -125,7 +125,8 @@ const Menu = ({ lang }) => {
             className="menu-grid"
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(500px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 500px))',
+              justifyContent: 'center',
               gap: '32px',
               alignItems: 'start'
             }}
