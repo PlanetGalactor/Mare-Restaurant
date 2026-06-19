@@ -87,7 +87,9 @@ function App() {
               style={{
                 height: '100%',
                 width: 'auto',
-                objectFit: 'contain'
+                objectFit: 'contain',
+                filter: isScrolled ? 'none' : 'brightness(0) invert(1)',
+                transition: 'filter 0.3s ease'
               }}
             />
           </div>

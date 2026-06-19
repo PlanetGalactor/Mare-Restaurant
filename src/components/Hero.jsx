@@ -11,6 +11,7 @@ const Hero = ({ lang }) => {
   };
 
   const t = translations[lang].hero;
+  const mapsUrl = "https://www.google.com/maps/search/?api=1&query=Tv.+do+Mar+21,+8600-607+Lagos,+Portugal";
 
   return (
     <section 
@@ -37,7 +38,7 @@ const Hero = ({ lang }) => {
         overflow: 'hidden'
       }}
     >
-      {/* Floating Refraction Glass Strips (mockup feature) */}
+      {/* Floating Refraction Glass Strips */}
       <div className="glass-strip float-strip-1" />
       <div className="glass-strip float-strip-2" />
       <div className="glass-strip float-strip-3" />
@@ -55,9 +56,7 @@ const Hero = ({ lang }) => {
           marginBottom: '50px'
         }}
       >
-
-
-        {/* Original Logo in Center instead of text */}
+        {/* Original Logo in Center - filter applied to invert to white on dark background */}
         <img 
           src="/assets/logos/logo_transparent_dark.png" 
           alt="Maré Logo" 
@@ -65,7 +64,7 @@ const Hero = ({ lang }) => {
             width: '340px',
             maxWidth: '90%',
             height: 'auto',
-            filter: 'drop-shadow(0 10px 25px rgba(0,0,0,0.5))',
+            filter: 'brightness(0) invert(1) drop-shadow(0 10px 25px rgba(255,255,255,0.15))',
             margin: '8px 0'
           }}
         />
@@ -85,44 +84,40 @@ const Hero = ({ lang }) => {
           {t.desc}
         </p>
 
-        {/* Mockup Styled CTA Buttons */}
+        {/* Mockup CTA Buttons */}
         <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', justifyContent: 'center', marginTop: '8px' }}>
-          {/* Solid White Pill button */}
+          {/* Primary Ver Menu Button (Solid Brand Blue) */}
           <button 
-            onClick={() => scrollToSection('find-us')} 
+            onClick={() => scrollToSection('menu')} 
             style={{
               fontSize: '13.5px',
               fontWeight: 700,
               textTransform: 'uppercase',
               letterSpacing: '0.5px',
               padding: '16px 36px',
-              backgroundColor: 'var(--color-white)',
-              color: 'var(--color-ink)',
+              backgroundColor: 'var(--color-blue)',
+              color: 'var(--color-white)',
               border: 'none',
               borderRadius: '50px',
               cursor: 'pointer',
-              boxShadow: '0 8px 25px rgba(0, 0, 0, 0.25)',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
+              boxShadow: '0 8px 25px rgba(59, 193, 218, 0.3)',
               transition: 'all 0.25s ease'
             }}
-            className="btn-reserve-mock"
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'translateY(-2px)';
-              e.currentTarget.style.boxShadow = '0 12px 30px rgba(255, 255, 255, 0.25)';
+              e.currentTarget.style.boxShadow = '0 12px 30px rgba(59, 193, 218, 0.45)';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.25)';
+              e.currentTarget.style.boxShadow = '0 8px 25px rgba(59, 193, 218, 0.3)';
             }}
           >
-            {t.ctaReserve}
+            {t.ctaMenu}
           </button>
           
-          {/* Glass Pill Button */}
+          {/* Secondary Contacto Button (Outlined Glass) */}
           <button 
-            onClick={() => scrollToSection('menu')} 
+            onClick={() => scrollToSection('find-us')} 
             style={{
               fontSize: '13.5px',
               fontWeight: 700,
@@ -148,12 +143,12 @@ const Hero = ({ lang }) => {
               e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.25)';
             }}
           >
-            {t.ctaMenu}
+            {t.ctaContact}
           </button>
         </div>
       </div>
 
-      {/* Row of Three Glassmorphic Cards at Bottom (Mockup Feature) */}
+      {/* Align-items stretch + equal height stats row */}
       <div 
         style={{
           display: 'flex',
@@ -162,41 +157,94 @@ const Hero = ({ lang }) => {
           maxWidth: '900px',
           zIndex: 5,
           marginTop: 'auto',
-          flexWrap: 'wrap'
+          flexWrap: 'wrap',
+          alignItems: 'stretch',
+          justifyContent: 'center'
         }}
         className="hero-stats-row animate-fade-in"
       >
-        {[
-          { val: t.statRating, label: t.statRatingLabel },
-          { val: t.statPrice, label: t.statPriceLabel },
-          { val: t.statHours, label: t.statHoursLabel }
-        ].map((stat, sIdx) => (
-          <div
-            key={sIdx}
-            style={{
-              flex: '1 1 250px',
-              backgroundColor: 'rgba(255, 255, 255, 0.03)',
-              backdropFilter: 'blur(20px)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              borderRadius: '20px',
-              padding: '24px 20px',
-              textAlign: 'center',
-              boxShadow: '0 20px 40px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
-              transition: 'all 0.3s ease'
-            }}
-            className="hero-stat-card"
-          >
-            <h4 style={{ fontSize: '26px', fontWeight: 800, color: 'var(--color-white)', margin: 0, letterSpacing: '-0.5px' }}>
-              {stat.val}
-            </h4>
-            <p style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', color: 'rgba(255, 255, 255, 0.55)', marginTop: '8px', marginBottom: 0, fontWeight: 700 }}>
-              {stat.label}
-            </p>
-          </div>
-        ))}
+        {/* Card 1: Google Rating */}
+        <div
+          style={{
+            flex: '1 1 250px',
+            backgroundColor: 'rgba(255, 255, 255, 0.03)',
+            backdropFilter: 'blur(20px)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            borderRadius: '20px',
+            padding: '24px 20px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            boxShadow: '0 20px 40px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
+            transition: 'all 0.3s ease'
+          }}
+          className="hero-stat-card"
+        >
+          <h4 style={{ fontSize: '26px', fontWeight: 800, color: 'var(--color-white)', margin: 0, letterSpacing: '-0.5px' }}>
+            {t.statRating}
+          </h4>
+          <p style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', color: 'rgba(255, 255, 255, 0.55)', marginTop: '8px', marginBottom: 0, fontWeight: 700 }}>
+            {t.statRatingLabel}
+          </p>
+        </div>
+
+        {/* Card 2: Lagos Centro (Tappable Link to Google Maps) */}
+        <div
+          onClick={() => window.open(mapsUrl, '_blank')}
+          style={{
+            flex: '1 1 250px',
+            backgroundColor: 'rgba(255, 255, 255, 0.03)',
+            backdropFilter: 'blur(20px)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            borderRadius: '20px',
+            padding: '24px 20px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            cursor: 'pointer',
+            boxShadow: '0 20px 40px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
+            transition: 'all 0.3s ease'
+          }}
+          className="hero-stat-card clickable-card"
+        >
+          <h4 style={{ fontSize: '24px', fontWeight: 800, color: 'var(--color-white)', margin: 0, letterSpacing: '-0.5px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+            {t.statLocation}
+          </h4>
+          <p style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--color-blue)', marginTop: '8px', marginBottom: 0, fontWeight: 700 }}>
+            {t.statLocationLabel}
+          </p>
+        </div>
+
+        {/* Card 3: Hours (Centered on same baseline) */}
+        <div
+          style={{
+            flex: '1 1 250px',
+            backgroundColor: 'rgba(255, 255, 255, 0.03)',
+            backdropFilter: 'blur(20px)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            borderRadius: '20px',
+            padding: '24px 20px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            boxShadow: '0 20px 40px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
+            transition: 'all 0.3s ease'
+          }}
+          className="hero-stat-card"
+        >
+          <h4 style={{ fontSize: '26px', fontWeight: 800, color: 'var(--color-white)', margin: 0, letterSpacing: '-0.5px' }}>
+            {t.statHours}
+          </h4>
+          <p style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', color: 'rgba(255, 255, 255, 0.55)', marginTop: '8px', marginBottom: 0, fontWeight: 700 }}>
+            {t.statHoursLabel}
+          </p>
+        </div>
       </div>
 
-      {/* Scoping local styling and animations */}
+      {/* Local styles and parallax glass strip swaying animations */}
       <style dangerouslySetInnerHTML={{__html: `
         .glass-strip {
           position: absolute;
@@ -250,6 +298,12 @@ const Hero = ({ lang }) => {
           background-color: rgba(255, 255, 255, 0.06) !important;
           border-color: rgba(255, 255, 255, 0.18) !important;
           box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3) !important;
+        }
+        .clickable-card:hover h4 {
+          color: var(--color-blue) !important;
+        }
+        .clickable-card:hover p {
+          color: var(--color-white) !important;
         }
       `}} />
     </section>

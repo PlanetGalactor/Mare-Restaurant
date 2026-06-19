@@ -59,7 +59,8 @@ const Footer = ({ lang }) => {
               style={{
                 height: '100%',
                 width: 'auto',
-                objectFit: 'contain'
+                objectFit: 'contain',
+                filter: 'brightness(0) invert(1)'
               }}
             />
           </div>
@@ -107,10 +108,7 @@ const Footer = ({ lang }) => {
             @marefooddrinks
           </a>
           
-          {/* Phone note disclaimer */}
-          <p style={{ fontSize: '13.5px', marginTop: '16px', color: '#8a857c', fontWeight: 500 }}>
-            📞 {t.phoneNote}
-          </p>
+
         </div>
       </div>
 
