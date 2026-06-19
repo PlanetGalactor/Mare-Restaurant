@@ -1,5 +1,6 @@
 import React from 'react';
 import { Heart, MessageCircle } from './Icons';
+import { translations } from '../utils/translations';
 
 const InstagramIcon = (props) => (
   <svg
@@ -27,7 +28,9 @@ const instagramPhotos = [
   { src: '/assets/photos/5D824CEA-B89C-4DF7-8A20-8EC950C6508C.JPG', likes: '112', comments: '15' }
 ];
 
-const Instagram = () => {
+const Instagram = ({ lang }) => {
+  const t = translations[lang].instagram;
+
   return (
     <section id="instagram" className="section" style={{ backgroundColor: 'var(--color-paper)' }}>
       {/* Title */}
@@ -42,7 +45,7 @@ const Instagram = () => {
             marginBottom: '4px'
           }}
         >
-          Stay connected
+          {t.subtitle}
         </span>
         <h2 
           style={{
@@ -53,7 +56,7 @@ const Instagram = () => {
             color: 'var(--color-ink)'
           }}
         >
-          Follow us on Instagram
+          {t.title}
         </h2>
         <a 
           href="https://www.instagram.com/marefooddrinks" 
@@ -67,7 +70,7 @@ const Instagram = () => {
             display: 'inline-block'
           }}
         >
-          @marefooddrinks
+          {t.handle}
         </a>
       </div>
 

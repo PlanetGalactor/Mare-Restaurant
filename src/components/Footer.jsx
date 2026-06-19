@@ -1,4 +1,5 @@
 import React from 'react';
+import { translations } from '../utils/translations';
 
 const InstagramIcon = (props) => (
   <svg
@@ -19,7 +20,9 @@ const InstagramIcon = (props) => (
   </svg>
 );
 
-const Footer = () => {
+const Footer = ({ lang }) => {
+  const t = translations[lang].footer;
+
   return (
     <footer 
       style={{
@@ -48,51 +51,44 @@ const Footer = () => {
       >
         {/* Brand Column */}
         <div style={{ flex: '1 1 300px' }}>
-          <h3 
-            style={{
-              fontFamily: 'var(--font-wordmark)',
-              fontSize: '38px',
-              fontWeight: 600,
-              color: 'var(--color-white)',
-              marginBottom: '4px',
-              lineHeight: 1
-            }}
-          >
-            Maré
-          </h3>
-          <p 
-            style={{
-              fontFamily: 'var(--font-accent)',
-              fontSize: '18px',
-              color: 'var(--color-blue)',
-              marginBottom: '16px'
-            }}
-          >
-            food & drinks
-          </p>
-          <p style={{ fontSize: '14px', lineHeight: 1.6, maxWidth: '280px' }}>
-            A relaxed seaside kitchen on the Algarve coast. Fresh ingredients, honest dishes, and great football matches.
+          {/* Logo PNG image in footer */}
+          <div style={{ height: '55px', marginBottom: '16px' }}>
+            <img 
+              src="/assets/logos/logo_transparent_dark.png" 
+              alt="Maré Logo" 
+              style={{
+                height: '100%',
+                width: 'auto',
+                objectFit: 'contain'
+              }}
+            />
+          </div>
+          <p style={{ fontSize: '14.5px', lineHeight: 1.6, maxWidth: '280px', color: '#8e8a82' }}>
+            {t.desc}
           </p>
         </div>
 
         {/* Info Column */}
         <div style={{ flex: '1 1 200px' }}>
           <h4 style={{ color: 'var(--color-white)', fontSize: '13px', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '16px' }}>
-            Find Us
+            {t.findUs}
           </h4>
-          <p style={{ fontSize: '14px', lineHeight: 1.6, marginBottom: '8px' }}>
+          <p style={{ fontSize: '14.5px', lineHeight: 1.6, marginBottom: '8px', color: '#e8e5df' }}>
             Tv. do Mar 21,<br />
             8600-607 Lagos, Portugal
           </p>
-          <p style={{ fontSize: '14px', fontStyle: 'italic' }}>
-            Located in the central pedestrian area
-          </p>
+          
+          {/* Flags side by side */}
+          <div style={{ display: 'flex', gap: '8px', fontSize: '22px', marginTop: '12px' }} title="Portugal & Brazil Live Matches">
+            <span>🇵🇹</span>
+            <span>🇧🇷</span>
+          </div>
         </div>
 
         {/* Social Column */}
         <div style={{ flex: '1 1 200px' }}>
           <h4 style={{ color: 'var(--color-white)', fontSize: '13px', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '16px' }}>
-            Follow
+            {t.follow}
           </h4>
           <a 
             href="https://www.instagram.com/marefooddrinks" 
@@ -110,8 +106,10 @@ const Footer = () => {
             <InstagramIcon size={18} />
             @marefooddrinks
           </a>
-          <p style={{ fontSize: '13px', marginTop: '12px', color: '#8a857c' }}>
-            No phone number at this time. DM us on Instagram!
+          
+          {/* Phone note disclaimer */}
+          <p style={{ fontSize: '13.5px', marginTop: '16px', color: '#8a857c', fontWeight: 500 }}>
+            📞 {t.phoneNote}
           </p>
         </div>
       </div>
@@ -142,7 +140,7 @@ const Footer = () => {
           }}
         >
           <span>Maré · food & drinks</span>
-          <span>Lagos, Portugal</span>
+          <span>Lagos, Portugal © {new Date().getFullYear()}</span>
         </div>
       </div>
     </footer>

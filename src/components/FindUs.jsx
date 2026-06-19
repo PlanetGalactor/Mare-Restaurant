@@ -1,15 +1,19 @@
 import React from 'react';
 import { MapPin, Clock, Euro, Star } from './Icons';
+import { translations } from '../utils/translations';
 
-const FindUs = () => {
+const FindUs = ({ lang }) => {
+  const t = translations[lang].findUs;
+
   return (
-    <section id="find-us" className="section" style={{ backgroundColor: 'var(--color-blue-tint)' }}>
+    <section id="find-us" className="section" style={{ backgroundColor: 'var(--color-blue-tint)', paddingBottom: 0 }}>
       <div 
         style={{
           display: 'grid',
           gridTemplateColumns: '1fr 1.2fr',
           gap: '48px',
-          alignItems: 'center'
+          alignItems: 'center',
+          marginBottom: '50px'
         }}
       >
         {/* Info Column */}
@@ -23,7 +27,7 @@ const FindUs = () => {
               marginBottom: '8px'
             }}
           >
-            Visit us in Lagos
+            {t.subtitle}
           </span>
           <h2 
             style={{
@@ -35,7 +39,7 @@ const FindUs = () => {
               letterSpacing: '1px'
             }}
           >
-            Where to find us
+            {t.title}
           </h2>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
@@ -54,10 +58,13 @@ const FindUs = () => {
               </div>
               <div>
                 <h4 style={{ fontSize: '16px', fontWeight: 800, textTransform: 'uppercase', color: 'var(--color-ink)' }}>
-                  Our Location
+                  {t.locationLabel}
                 </h4>
                 <p style={{ color: '#55524c', marginTop: '4px', fontSize: '15px' }}>
-                  Tv. do Mar 21, 8600-607 Lagos, Portugal
+                  {t.locationValue}
+                </p>
+                <p style={{ color: '#88857e', fontSize: '13px', marginTop: '2px', fontStyle: 'italic' }}>
+                  {t.locationDesc}
                 </p>
               </div>
             </div>
@@ -77,10 +84,10 @@ const FindUs = () => {
               </div>
               <div>
                 <h4 style={{ fontSize: '16px', fontWeight: 800, textTransform: 'uppercase', color: 'var(--color-ink)' }}>
-                  Hours
+                  {t.hoursLabel}
                 </h4>
                 <p style={{ color: '#55524c', marginTop: '4px', fontSize: '15px' }}>
-                  Daily: 12:00 PM – Midnight (12:00 AM)
+                  {t.hoursValue}
                 </p>
               </div>
             </div>
@@ -100,10 +107,10 @@ const FindUs = () => {
               </div>
               <div>
                 <h4 style={{ fontSize: '16px', fontWeight: 800, textTransform: 'uppercase', color: 'var(--color-ink)' }}>
-                  Average Price
+                  {t.priceLabel}
                 </h4>
                 <p style={{ color: '#55524c', marginTop: '4px', fontSize: '15px' }}>
-                  €15 – €20 per person
+                  {t.priceValue}
                 </p>
               </div>
             </div>
@@ -123,10 +130,10 @@ const FindUs = () => {
               </div>
               <div>
                 <h4 style={{ fontSize: '16px', fontWeight: 800, textTransform: 'uppercase', color: 'var(--color-ink)' }}>
-                  Google Rating
+                  {t.ratingLabel}
                 </h4>
-                <p style={{ color: '#55524c', marginTop: '4px', fontSize: '15px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <strong>4.9⭐</strong> (66 reviews on Google Maps)
+                <p style={{ color: '#55524c', marginTop: '4px', fontSize: '15px' }}>
+                  <strong>4.9⭐</strong> {t.ratingValue}
                 </p>
               </div>
             </div>
@@ -155,6 +162,20 @@ const FindUs = () => {
           />
         </div>
       </div>
+
+      {/* 12px gap + white/cream divider before footer */}
+      <div 
+        style={{ 
+          height: '12px', 
+          backgroundColor: 'var(--color-paper)', 
+          width: '100vw',
+          position: 'relative',
+          left: '50%',
+          right: '50%',
+          marginLeft: '-50vw',
+          marginRight: '-50vw'
+        }} 
+      />
 
       <style dangerouslySetInnerHTML={{__html: `
         @media (max-width: 900px) {

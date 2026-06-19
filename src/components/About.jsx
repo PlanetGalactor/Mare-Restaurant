@@ -1,7 +1,10 @@
 import React from 'react';
 import BrushDivider from './BrushDivider';
+import { translations } from '../utils/translations';
 
-const About = () => {
+const About = ({ lang }) => {
+  const t = translations[lang].about;
+
   return (
     <section id="about" className="section" style={{ backgroundColor: 'var(--color-paper)' }}>
       <div 
@@ -23,44 +26,72 @@ const About = () => {
               marginBottom: '8px'
             }}
           >
-            Welcome to Maré
+            {t.subtitle}
           </span>
           <h2 
             style={{
-              fontSize: '36px',
+              fontSize: '32px',
               fontWeight: 800,
               color: 'var(--color-ink)',
               marginBottom: '24px',
               textTransform: 'uppercase',
-              letterSpacing: '1px'
+              letterSpacing: '1px',
+              lineHeight: 1.3
             }}
           >
-            Good Food. Good Drinks. Great Atmosphere.
+            {t.title}
           </h2>
 
           <p 
             style={{
-              fontSize: '17px',
+              fontSize: '16px',
               color: '#55524c',
               lineHeight: '1.8',
               marginBottom: '20px'
             }}
           >
-            Nestled in the middle of Lagos’ lively walking streets, Maré is your perfect sunny retreat. 
-            Enjoy our fresh, honest dishes and refreshing drinks in a warm, laid-back atmosphere.
+            {t.p1}
           </p>
 
           <p 
             style={{
-              fontSize: '17px',
+              fontSize: '16px',
               color: '#55524c',
               lineHeight: '1.8',
               marginBottom: '24px'
             }}
           >
-            We are centrally located in the heart of town, making it easy to pull up a chair, relax, and soak up the Algarve summer. 
-            Sports fans, pull up a seat—we always show the best <strong>Brazil and Portugal football matches</strong> live!
+            {t.p2}
           </p>
+
+          {/* Football Promo Box */}
+          <div
+            style={{
+              backgroundColor: 'var(--color-blue-tint)',
+              borderLeft: '4px solid var(--color-orange)',
+              padding: '16px 20px',
+              borderRadius: '0 12px 12px 0',
+              marginBottom: '24px'
+            }}
+          >
+            <h4
+              style={{
+                fontSize: '15px',
+                fontWeight: 800,
+                textTransform: 'uppercase',
+                color: 'var(--color-ink)',
+                marginBottom: '6px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px'
+              }}
+            >
+              ⚽ {t.footballTitle}
+            </h4>
+            <p style={{ fontSize: '14.5px', color: '#55524c', lineHeight: 1.6 }}>
+              {t.footballText}
+            </p>
+          </div>
 
           {/* Accent Divider */}
           <div style={{ margin: '32px 0 0 0' }}>

@@ -5,8 +5,10 @@ import Menu from './components/Menu';
 import Instagram from './components/Instagram';
 import FindUs from './components/FindUs';
 import Footer from './components/Footer';
+import { translations } from './utils/translations';
 
 function App() {
+  const [lang, setLang] = useState('pt');
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -27,6 +29,13 @@ function App() {
       section.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  const navItems = [
+    { id: 'about', label: translations[lang].nav.about },
+    { id: 'menu', label: translations[lang].nav.menu },
+    { id: 'instagram', label: translations[lang].nav.instagram },
+    { id: 'find-us', label: translations[lang].nav.findUs }
+  ];
 
   return (
     <>
@@ -59,97 +68,138 @@ function App() {
             alignItems: 'center'
           }}
         >
-          {/* Logo / Brand Name */}
+          {/* Dynamic Logo Image */}
           <div 
             onClick={() => scrollToSection('hero')} 
             style={{ 
               cursor: 'pointer',
               display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'flex-start'
+              alignItems: 'center',
+              height: isScrolled ? '40px' : '50px',
+              transition: 'all 0.3s ease'
             }}
           >
-            <span 
-              style={{ 
-                fontFamily: 'var(--font-wordmark)', 
-                fontSize: isScrolled ? '24px' : '30px', 
-                fontWeight: 600,
-                color: isScrolled ? 'var(--color-ink)' : 'var(--color-white)',
-                transition: 'all 0.3s ease',
-                lineHeight: 1
-              }}
-            >
-              Maré
-            </span>
-            <span
+            <img
+              src={isScrolled ? '/assets/logos/logo_transparent_light.png' : '/assets/logos/logo_transparent_dark.png'}
+              alt="Maré Logo"
               style={{
-                fontFamily: 'var(--font-accent)',
-                fontSize: isScrolled ? '12px' : '15px',
-                color: 'var(--color-blue)',
-                transition: 'all 0.3s ease',
-                marginTop: '-2px'
+                height: '100%',
+                width: 'auto',
+                objectFit: 'contain',
+                transition: 'all 0.3s ease'
               }}
-            >
-              food & drinks
-            </span>
+            />
           </div>
 
-          {/* Navigation Links */}
-          <nav 
-            style={{ 
-              display: 'flex', 
-              gap: '28px',
-              fontWeight: 700,
-              fontSize: '13px',
-              textTransform: 'uppercase',
-              letterSpacing: '1px'
-            }}
-          >
-            {['about', 'menu', 'instagram', 'find-us'].map((sectionId) => (
-              <span
-                key={sectionId}
-                onClick={() => scrollToSection(sectionId)}
-                style={{
-                  cursor: 'pointer',
-                  color: isScrolled ? 'var(--color-ink)' : 'var(--color-white)',
-                  transition: 'color 0.25s ease',
-                  padding: '6px 0',
-                  position: 'relative'
-                }}
-                className="nav-link"
-              >
-                {sectionId.replace('-', ' ')}
-              </span>
-            ))}
-          </nav>
+          {/* Navigation & Controls */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
+            <nav 
+              style={{ 
+                display: 'flex', 
+                gap: '24px',
+                fontWeight: 700,
+                fontSize: '13px',
+                textTransform: 'uppercase',
+                letterSpacing: '1px'
+              }}
+              className="header-nav"
+            >
+              {navItems.map((item) => (
+                <span
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  style={{
+                    cursor: 'pointer',
+                    color: isScrolled ? 'var(--color-ink)' : 'var(--color-white)',
+                    transition: 'color 0.25s ease',
+                    padding: '6px 0',
+                    position: 'relative'
+                  }}
+                  className="nav-link"
+                >
+                  {item.label}
+                </span>
+              ))}
+            </nav>
+
+            {/* Language Toggle PT/EN */}
+            <button
+              onClick={() => setLang(lang === 'pt' ? 'en' : 'pt')}
+              style={{
+                background: 'none',
+                color: isScrolled ? 'var(--color-ink)' : 'var(--color-white)',
+                cursor: 'pointer',
+                fontWeight: 700,
+                fontSize: '12px',
+                padding: '6px 12px',
+                borderRadius: '20px',
+                border: `1.5px solid ${isScrolled ? 'rgba(43, 42, 40, 0.15)' : 'rgba(255, 255, 255, 0.25)'}`,
+                transition: 'all 0.25s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = isScrolled ? 'rgba(43, 42, 40, 0.05)' : 'rgba(255, 255, 255, 0.1)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = 'transparent';
+              }}
+            >
+              {lang === 'pt' ? 'EN' : 'PT'}
+            </button>
+
+            {/* CTA Button "Ver Menu / View Menu" */}
+            <button
+              onClick={() => scrollToSection('menu')}
+              style={{
+                backgroundColor: 'var(--color-blue)',
+                color: 'var(--color-white)',
+                border: 'none',
+                borderRadius: '30px',
+                padding: '10px 24px',
+                fontSize: '12px',
+                fontWeight: 700,
+                textTransform: 'uppercase',
+                letterSpacing: '0.5px',
+                cursor: 'pointer',
+                boxShadow: '0 4px 14px rgba(59, 193, 218, 0.25)',
+                transition: 'all 0.25s ease'
+              }}
+              className="cta-pill"
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-1px)';
+                e.currentTarget.style.boxShadow = '0 6px 18px rgba(59, 193, 218, 0.35)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 4px 14px rgba(59, 193, 218, 0.25)';
+              }}
+            >
+              {translations[lang].nav.cta}
+            </button>
+          </div>
         </div>
       </header>
 
       {/* Main Single Page Sections */}
       <main>
-        <Hero />
-        <About />
-        <Menu />
-        <Instagram />
-        <FindUs />
+        <Hero lang={lang} />
+        <About lang={lang} />
+        <Menu lang={lang} />
+        <Instagram lang={lang} />
+        <FindUs lang={lang} />
       </main>
 
-      <Footer />
+      <Footer lang={lang} />
 
       <style dangerouslySetInnerHTML={{__html: `
         .nav-link:hover {
           color: var(--color-blue) !important;
         }
-        @media (max-width: 600px) {
-          header nav {
-            gap: 16px !important;
-            font-size: 11px !important;
+        @media (max-width: 768px) {
+          header .header-nav {
+            display: none !important;
           }
           header {
-            height: 60px !important;
-          }
-          header .nav-link {
-            padding: 4px 0 !important;
+            height: 70px !important;
           }
         }
       `}} />
