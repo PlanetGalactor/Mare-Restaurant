@@ -82,8 +82,14 @@ a:hover {
   position: relative;
 }
 
+.section-full {
+  padding: 100px 24px;
+  width: 100%;
+  position: relative;
+}
+
 @media (max-width: 768px) {
-  .section {
+  .section, .section-full {
     padding: 60px 20px;
   }
 }

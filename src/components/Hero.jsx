@@ -20,11 +20,7 @@ const Hero = ({ lang }) => {
       style={{
         position: 'relative',
         height: '100svh',
-        width: '100vw',
-        left: '50%',
-        right: '50%',
-        marginLeft: '-50vw',
-        marginRight: '-50vw',
+        width: '100%',
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)), url('/assets/photos/60303E26-56C9-4A09-808D-25266615EA8A.JPG')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',

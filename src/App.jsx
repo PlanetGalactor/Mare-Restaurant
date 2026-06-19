@@ -188,6 +188,8 @@ function App() {
         <Menu lang={lang} />
         <Instagram lang={lang} />
         <FindUs lang={lang} />
+        {/* 12px gap + white/cream divider before footer */}
+        <div style={{ height: '12px', backgroundColor: 'var(--color-paper)', width: '100%' }} />
       </main>
 
       <Footer lang={lang} />

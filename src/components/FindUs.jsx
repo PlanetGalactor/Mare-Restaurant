@@ -6,16 +6,17 @@ const FindUs = ({ lang }) => {
   const t = translations[lang].findUs;
 
   return (
-    <section id="find-us" className="section" style={{ backgroundColor: 'var(--color-blue-tint)', paddingBottom: 0 }}>
-      <div 
-        style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1.2fr',
-          gap: '48px',
-          alignItems: 'center',
-          marginBottom: '50px'
-        }}
-      >
+    <section id="find-us" className="section-full" style={{ backgroundColor: 'var(--color-blue-tint)' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <div 
+          className="find-us-grid"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 1.2fr',
+            gap: '48px',
+            alignItems: 'center'
+          }}
+        >
         {/* Info Column */}
         <div style={{ textAlign: 'left' }}>
           <span 
@@ -161,25 +162,12 @@ const FindUs = ({ lang }) => {
             referrerPolicy="no-referrer-when-downgrade"
           />
         </div>
+        </div>
       </div>
-
-      {/* 12px gap + white/cream divider before footer */}
-      <div 
-        style={{ 
-          height: '12px', 
-          backgroundColor: 'var(--color-paper)', 
-          width: '100vw',
-          position: 'relative',
-          left: '50%',
-          right: '50%',
-          marginLeft: '-50vw',
-          marginRight: '-50vw'
-        }} 
-      />
 
       <style dangerouslySetInnerHTML={{__html: `
         @media (max-width: 900px) {
-          #find-us > div {
+          .find-us-grid {
             grid-template-columns: 1fr !important;
             gap: 40px !important;
           }

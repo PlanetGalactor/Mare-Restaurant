@@ -30,12 +30,7 @@ const Footer = ({ lang }) => {
         color: '#a8a49c',
         padding: '60px 24px 30px 24px',
         textAlign: 'left',
-        width: '100vw',
-        position: 'relative',
-        left: '50%',
-        right: '50%',
-        marginLeft: '-50vw',
-        marginRight: '-50vw'
+        width: '100%'
       }}
     >
       <div 

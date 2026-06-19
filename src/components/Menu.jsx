@@ -11,7 +11,7 @@ const Menu = ({ lang }) => {
   const categories = menuData[activeTab];
 
   return (
-    <section id="menu" className="section" style={{ backgroundColor: 'var(--color-blue-tint)', width: '100vw', position: 'relative', left: '50%', right: '50%', marginLeft: '-50vw', marginRight: '-50vw', padding: '80px 24px' }}>
+    <section id="menu" className="section-full" style={{ backgroundColor: 'var(--color-blue-tint)' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         {/* Title */}
         <div className="text-center" style={{ marginBottom: '40px' }}>
@@ -99,7 +99,7 @@ const Menu = ({ lang }) => {
                         position: 'absolute',
                         inset: 0,
                         borderRadius: '30px',
-                        background: 'linear-gradient(90deg, var(--color-blue) 0%, var(--color-orange) 55%, var(--color-green) 100%)',
+                        background: 'var(--color-blue)',
                         zIndex: -1,
                         boxShadow: '0 6px 18px rgba(59, 193, 218, 0.25)'
                       }}
