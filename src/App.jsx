@@ -39,18 +39,21 @@ function App() {
 
   return (
     <>
-      {/* Floating Header */}
+      {/* Floating Capsule Header (Mockup Design) */}
       <header
         style={{
           position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          height: isScrolled ? '70px' : '90px',
-          backgroundColor: isScrolled ? 'rgba(250, 247, 242, 0.95)' : 'transparent',
-          backdropFilter: isScrolled ? 'blur(10px)' : 'none',
-          boxShadow: isScrolled ? 'var(--shadow-subtle)' : 'none',
-          borderBottom: isScrolled ? '1px solid rgba(43, 42, 40, 0.08)' : 'none',
+          top: isScrolled ? '16px' : '24px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: 'calc(100% - 32px)',
+          maxWidth: '850px',
+          height: '60px',
+          backgroundColor: isScrolled ? 'rgba(250, 247, 242, 0.92)' : 'rgba(20, 20, 20, 0.45)',
+          backdropFilter: 'blur(16px) saturate(120%)',
+          boxShadow: '0 15px 35px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255,255,255,0.05)',
+          border: isScrolled ? '1px solid rgba(43, 42, 40, 0.08)' : '1px solid rgba(255, 255, 255, 0.12)',
+          borderRadius: '50px',
           zIndex: 1000,
           display: 'flex',
           justifyContent: 'center',
@@ -61,8 +64,7 @@ function App() {
         <div
           style={{
             width: '100%',
-            maxWidth: '1200px',
-            padding: '0 24px',
+            padding: '0 16px 0 20px',
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center'
@@ -75,7 +77,7 @@ function App() {
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
-              height: isScrolled ? '40px' : '50px',
+              height: '34px',
               transition: 'all 0.3s ease'
             }}
           >
@@ -85,20 +87,19 @@ function App() {
               style={{
                 height: '100%',
                 width: 'auto',
-                objectFit: 'contain',
-                transition: 'all 0.3s ease'
+                objectFit: 'contain'
               }}
             />
           </div>
 
           {/* Navigation & Controls */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
             <nav 
               style={{ 
                 display: 'flex', 
-                gap: '24px',
+                gap: '20px',
                 fontWeight: 700,
-                fontSize: '13px',
+                fontSize: '12px',
                 textTransform: 'uppercase',
                 letterSpacing: '1px'
               }}
@@ -130,7 +131,7 @@ function App() {
                 color: isScrolled ? 'var(--color-ink)' : 'var(--color-white)',
                 cursor: 'pointer',
                 fontWeight: 700,
-                fontSize: '12px',
+                fontSize: '11px',
                 padding: '6px 12px',
                 borderRadius: '20px',
                 border: `1.5px solid ${isScrolled ? 'rgba(43, 42, 40, 0.15)' : 'rgba(255, 255, 255, 0.25)'}`,
@@ -146,7 +147,7 @@ function App() {
               {lang === 'pt' ? 'EN' : 'PT'}
             </button>
 
-            {/* CTA Button "Ver Menu / View Menu" */}
+            {/* CTA Button "Ver Menu" */}
             <button
               onClick={() => scrollToSection('menu')}
               style={{
@@ -154,8 +155,8 @@ function App() {
                 color: 'var(--color-white)',
                 border: 'none',
                 borderRadius: '30px',
-                padding: '10px 24px',
-                fontSize: '12px',
+                padding: '8px 20px',
+                fontSize: '11.5px',
                 fontWeight: 700,
                 textTransform: 'uppercase',
                 letterSpacing: '0.5px',
@@ -199,7 +200,8 @@ function App() {
             display: none !important;
           }
           header {
-            height: 70px !important;
+            height: 56px !important;
+            top: 12px !important;
           }
         }
       `}} />

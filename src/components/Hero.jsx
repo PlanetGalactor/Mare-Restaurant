@@ -3,10 +3,10 @@ import { ChevronDown } from './Icons';
 import { translations } from '../utils/translations';
 
 const Hero = ({ lang }) => {
-  const scrollToMenu = () => {
-    const menuSection = document.getElementById('menu');
-    if (menuSection) {
-      menuSection.scrollIntoView({ behavior: 'smooth' });
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -24,7 +24,7 @@ const Hero = ({ lang }) => {
         right: '50%',
         marginLeft: '-50vw',
         marginRight: '-50vw',
-        backgroundImage: `linear-gradient(rgba(43, 42, 40, 0.35), rgba(43, 42, 40, 0.45)), url('/assets/photos/60303E26-56C9-4A09-808D-25266615EA8A.JPG')`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)), url('/assets/photos/60303E26-56C9-4A09-808D-25266615EA8A.JPG')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         display: 'flex',
@@ -33,119 +33,223 @@ const Hero = ({ lang }) => {
         alignItems: 'center',
         textAlign: 'center',
         color: 'var(--color-white)',
-        padding: '0 20px'
+        padding: '120px 20px 80px 20px',
+        overflow: 'hidden'
       }}
     >
-      {/* 21st Dev inspired Glassmorphic Card Container */}
+      {/* Floating Refraction Glass Strips (mockup feature) */}
+      <div className="glass-strip float-strip-1" />
+      <div className="glass-strip float-strip-2" />
+      <div className="glass-strip float-strip-3" />
+
+      {/* Main Content Layout */}
       <div 
         className="hero-content animate-fade-in"
         style={{
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          gap: '24px',
-          maxWidth: '600px',
-          padding: '48px 36px',
-          borderRadius: '24px',
-          backgroundColor: 'rgba(255, 255, 255, 0.03)',
-          backdropFilter: 'blur(24px) saturate(120%)',
-          border: '1px solid rgba(255, 255, 255, 0.12)',
-          boxShadow: '0 30px 60px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
-          transition: 'all 0.3s ease'
+          gap: '28px',
+          maxWidth: '750px',
+          zIndex: 5,
+          marginBottom: '50px'
         }}
       >
-        {/* Logo (white version on dark background) */}
+
+
+        {/* Original Logo in Center instead of text */}
         <img 
           src="/assets/logos/logo_transparent_dark.png" 
           alt="Maré Logo" 
           style={{
-            width: '240px',
-            maxWidth: '100%',
+            width: '340px',
+            maxWidth: '90%',
             height: 'auto',
-            filter: 'drop-shadow(0 8px 16px rgba(0,0,0,0.35))'
+            filter: 'drop-shadow(0 10px 25px rgba(0,0,0,0.5))',
+            margin: '8px 0'
           }}
         />
 
-        {/* Tagline & Headers */}
-        <div style={{ marginTop: '10px' }}>
-          <p 
-            style={{ 
-              fontFamily: 'var(--font-accent)', 
-              fontSize: '32px', 
-              color: 'var(--color-blue)',
-              textShadow: '0 2px 4px rgba(0,0,0,0.3)',
-              lineHeight: 1.2
-            }}
-          >
-            {t.tagline}
-          </p>
-          <h1 
-            style={{ 
-              fontSize: '40px', 
-              fontWeight: 800, 
-              color: 'var(--color-white)',
-              textTransform: 'uppercase',
-              letterSpacing: '3px',
-              marginTop: '8px',
-              textShadow: '0 3px 6px rgba(0,0,0,0.4)',
-              lineHeight: 1.25
-            }}
-          >
-            {t.title}
-          </h1>
-        </div>
-
-        {/* CTA Button */}
-        <button 
-          onClick={scrollToMenu} 
-          className="btn btn-primary"
-          style={{
-            marginTop: '12px',
-            fontSize: '14px',
-            padding: '16px 40px',
-            background: 'var(--color-blue)',
-            border: 'none',
-            color: 'var(--color-white)',
-            boxShadow: '0 10px 20px rgba(59, 193, 218, 0.3)',
-            borderRadius: '50px',
-            cursor: 'pointer',
-            transition: 'all 0.25s ease'
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'translateY(-2px)';
-            e.currentTarget.style.boxShadow = '0 15px 30px rgba(59, 193, 218, 0.45)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = '0 10px 20px rgba(59, 193, 218, 0.3)';
+        {/* Subtitle/Description Copy */}
+        <p 
+          style={{ 
+            fontSize: '17px', 
+            color: 'rgba(255, 255, 255, 0.85)',
+            lineHeight: '1.7',
+            maxWidth: '650px',
+            margin: '0 auto 8px auto',
+            textShadow: '0 2px 8px rgba(0,0,0,0.4)',
+            fontWeight: 500
           }}
         >
-          {t.cta}
-        </button>
+          {t.desc}
+        </p>
+
+        {/* Mockup Styled CTA Buttons */}
+        <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', justifyContent: 'center', marginTop: '8px' }}>
+          {/* Solid White Pill button */}
+          <button 
+            onClick={() => scrollToSection('find-us')} 
+            style={{
+              fontSize: '13.5px',
+              fontWeight: 700,
+              textTransform: 'uppercase',
+              letterSpacing: '0.5px',
+              padding: '16px 36px',
+              backgroundColor: 'var(--color-white)',
+              color: 'var(--color-ink)',
+              border: 'none',
+              borderRadius: '50px',
+              cursor: 'pointer',
+              boxShadow: '0 8px 25px rgba(0, 0, 0, 0.25)',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              transition: 'all 0.25s ease'
+            }}
+            className="btn-reserve-mock"
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-2px)';
+              e.currentTarget.style.boxShadow = '0 12px 30px rgba(255, 255, 255, 0.25)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.25)';
+            }}
+          >
+            {t.ctaReserve}
+          </button>
+          
+          {/* Glass Pill Button */}
+          <button 
+            onClick={() => scrollToSection('menu')} 
+            style={{
+              fontSize: '13.5px',
+              fontWeight: 700,
+              textTransform: 'uppercase',
+              letterSpacing: '0.5px',
+              padding: '16px 36px',
+              backgroundColor: 'rgba(255, 255, 255, 0.08)',
+              color: 'var(--color-white)',
+              border: '1px solid rgba(255, 255, 255, 0.25)',
+              borderRadius: '50px',
+              cursor: 'pointer',
+              backdropFilter: 'blur(10px)',
+              transition: 'all 0.25s ease'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-2px)';
+              e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.15)';
+              e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.08)';
+              e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.25)';
+            }}
+          >
+            {t.ctaMenu}
+          </button>
+        </div>
       </div>
 
-      {/* Down Arrow Indicator */}
+      {/* Row of Three Glassmorphic Cards at Bottom (Mockup Feature) */}
       <div 
-        onClick={scrollToMenu}
         style={{
-          position: 'absolute',
-          bottom: '30px',
-          cursor: 'pointer',
-          animation: 'bounce 2s infinite',
-          color: 'rgba(255, 255, 255, 0.7)',
-          transition: 'color var(--transition-speed)'
+          display: 'flex',
+          gap: '20px',
+          width: '100%',
+          maxWidth: '900px',
+          zIndex: 5,
+          marginTop: 'auto',
+          flexWrap: 'wrap'
         }}
-        onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-blue)'}
-        onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 0.7)'}
+        className="hero-stats-row animate-fade-in"
       >
-        <ChevronDown size={36} />
+        {[
+          { val: t.statRating, label: t.statRatingLabel },
+          { val: t.statPrice, label: t.statPriceLabel },
+          { val: t.statHours, label: t.statHoursLabel }
+        ].map((stat, sIdx) => (
+          <div
+            key={sIdx}
+            style={{
+              flex: '1 1 250px',
+              backgroundColor: 'rgba(255, 255, 255, 0.03)',
+              backdropFilter: 'blur(20px)',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              borderRadius: '20px',
+              padding: '24px 20px',
+              textAlign: 'center',
+              boxShadow: '0 20px 40px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
+              transition: 'all 0.3s ease'
+            }}
+            className="hero-stat-card"
+          >
+            <h4 style={{ fontSize: '26px', fontWeight: 800, color: 'var(--color-white)', margin: 0, letterSpacing: '-0.5px' }}>
+              {stat.val}
+            </h4>
+            <p style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', color: 'rgba(255, 255, 255, 0.55)', marginTop: '8px', marginBottom: 0, fontWeight: 700 }}>
+              {stat.label}
+            </p>
+          </div>
+        ))}
       </div>
 
+      {/* Scoping local styling and animations */}
       <style dangerouslySetInnerHTML={{__html: `
-        @keyframes bounce {
-          0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-          40% { transform: translateY(-10px); }
-          60% { transform: translateY(-5px); }
+        .glass-strip {
+          position: absolute;
+          background: linear-gradient(135deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.01) 100%);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          backdrop-filter: blur(16px);
+          border-radius: 60px;
+          pointer-events: none;
+          z-index: 1;
+        }
+        .float-strip-1 {
+          width: 320px;
+          height: 100px;
+          top: 15%;
+          left: -80px;
+          transform: rotate(-30deg);
+          animation: floatSway1 8s ease-in-out infinite alternate;
+        }
+        .float-strip-2 {
+          width: 360px;
+          height: 120px;
+          bottom: 12%;
+          right: -100px;
+          transform: rotate(-30deg);
+          animation: floatSway2 10s ease-in-out infinite alternate;
+        }
+        .float-strip-3 {
+          width: 220px;
+          height: 70px;
+          top: 35%;
+          right: 12%;
+          transform: rotate(-30deg);
+          animation: floatSway3 7s ease-in-out infinite alternate;
+        }
+
+        @keyframes floatSway1 {
+          0% { transform: translateY(0) rotate(-30deg); }
+          100% { transform: translateY(-20px) rotate(-28deg); }
+        }
+        @keyframes floatSway2 {
+          0% { transform: translateY(0) rotate(-30deg); }
+          100% { transform: translateY(-25px) rotate(-32deg); }
+        }
+        @keyframes floatSway3 {
+          0% { transform: translateY(0) rotate(-30deg); }
+          100% { transform: translateY(-15px) rotate(-29deg); }
+        }
+        
+        .hero-stat-card:hover {
+          transform: translateY(-4px);
+          background-color: rgba(255, 255, 255, 0.06) !important;
+          border-color: rgba(255, 255, 255, 0.18) !important;
+          box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3) !important;
         }
       `}} />
     </section>

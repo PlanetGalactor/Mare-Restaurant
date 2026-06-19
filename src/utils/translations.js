@@ -12,7 +12,15 @@ export const translations = {
     hero: {
       tagline: "fresco da maré",
       title: "Comida. Bebidas. Lagos.",
-      cta: "Ver o Menu"
+      desc: "Cozinha descontraída no centro pedonal de Lagos. Tapas frescas, baguetes famosas, vinhos locais e futebol ao vivo.",
+      ctaReserve: "Reservar Mesa ➔",
+      ctaMenu: "Ver Menu",
+      statRating: "4.9 ★",
+      statRatingLabel: "Google (66 avaliações)",
+      statPrice: "€15 – €20",
+      statPriceLabel: "Preço Médio",
+      statHours: "12:00h – 00:00h",
+      statHoursLabel: "Aberto Todos os Dias"
     },
     about: {
       subtitle: "Bem-vindo ao Maré",
@@ -100,7 +108,15 @@ export const translations = {
     hero: {
       tagline: "fresh from the tide",
       title: "Food. Drinks. Lagos.",
-      cta: "See the Menu"
+      desc: "Relaxed kitchen in the heart of Lagos. Fresh tapas, famous baguettes, local wines, and live football matches.",
+      ctaReserve: "Book Table ➔",
+      ctaMenu: "View Menu",
+      statRating: "4.9 ★",
+      statRatingLabel: "Google (66 reviews)",
+      statPrice: "€15 – €20",
+      statPriceLabel: "Average Price",
+      statHours: "12:00 PM – Midnight",
+      statHoursLabel: "Open Daily"
     },
     about: {
       subtitle: "Welcome to Maré",
