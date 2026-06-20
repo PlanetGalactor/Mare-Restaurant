@@ -132,11 +132,14 @@ function App() {
                 color: isScrolled ? 'var(--color-ink)' : 'var(--color-white)',
                 cursor: 'pointer',
                 fontWeight: 700,
-                fontSize: '11px',
-                padding: '6px 12px',
+                fontSize: '12px',
+                padding: '6px 14px',
                 borderRadius: '20px',
                 border: `1.5px solid ${isScrolled ? 'rgba(43, 42, 40, 0.15)' : 'rgba(255, 255, 255, 0.25)'}`,
-                transition: 'all 0.25s ease'
+                transition: 'all 0.25s ease',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.backgroundColor = isScrolled ? 'rgba(43, 42, 40, 0.05)' : 'rgba(255, 255, 255, 0.1)';
@@ -145,7 +148,7 @@ function App() {
                 e.currentTarget.style.backgroundColor = 'transparent';
               }}
             >
-              {lang === 'pt' ? 'EN' : 'PT'}
+              {lang === 'pt' ? '🇬🇧 EN' : '🇵🇹 PT'}
             </button>
 
             {/* CTA Button "Ver Menu" */}

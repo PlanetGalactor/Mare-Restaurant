@@ -164,6 +164,7 @@ const Menu = ({ lang }) => {
           }}
         >
           <div 
+            className="menu-tabs-wrapper"
             style={{
               position: 'relative',
               display: 'flex',
@@ -185,6 +186,7 @@ const Menu = ({ lang }) => {
                 <button
                   key={tab.key}
                   onClick={() => setActiveTab(tab.key)}
+                  className="menu-tab-btn"
                   style={{
                     position: 'relative',
                     padding: '12px 28px',
@@ -286,6 +288,22 @@ const Menu = ({ lang }) => {
         @media (max-width: 600px) {
           .menu-category-card {
             padding: 20px !important;
+          }
+          .menu-tab-btn {
+            padding: 10px 14px !important;
+            font-size: 11.5px !important;
+            gap: 4px !important;
+          }
+        }
+        @media (max-width: 380px) {
+          .menu-tab-btn {
+            padding: 8px 10px !important;
+            font-size: 10.5px !important;
+            gap: 3px !important;
+          }
+          .menu-tab-btn svg {
+            width: 12px !important;
+            height: 12px !important;
           }
         }
       `}} />
