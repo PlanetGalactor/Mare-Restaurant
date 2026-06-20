@@ -110,7 +110,7 @@ const About = ({ lang }) => {
           }}
         >
           <img 
-            src="/assets/photos/36E7C77C-53CF-46ED-8188-991BC5B34670.JPG" 
+            src="/assets/photos/60303E26-56C9-4A09-808D-25266615EA8A.JPG" 
             alt="Maré table setup" 
             style={{
               width: '100%',

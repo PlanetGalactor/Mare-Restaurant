@@ -77,7 +77,7 @@ function App() {
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
-              height: '34px',
+              height: '40px',
               transition: 'all 0.3s ease'
             }}
           >

@@ -134,7 +134,7 @@ const FindUs = ({ lang }) => {
                   {t.ratingLabel}
                 </h4>
                 <p style={{ color: '#55524c', marginTop: '4px', fontSize: '15px' }}>
-                  <strong>4.9⭐</strong> {t.ratingValue}
+                  {t.ratingValue}
                 </p>
               </div>
             </div>

@@ -19,7 +19,7 @@ const Hero = ({ lang }) => {
       className="hero-section"
       style={{
         position: 'relative',
-        height: '100svh',
+        minHeight: '100svh',
         width: '100%',
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)), url('/assets/photos/60303E26-56C9-4A09-808D-25266615EA8A.JPG')`,
         backgroundSize: 'cover',
@@ -158,8 +158,9 @@ const Hero = ({ lang }) => {
         }}
         className="hero-stats-row animate-fade-in"
       >
-        {/* Card 1: Google Rating */}
+        {/* Card 1: Google Rating (Tappable Link to Google Reviews) */}
         <div
+          onClick={() => window.open('https://share.google/mTcTUlmEMK0Czwgjj', '_blank')}
           style={{
             flex: '1 1 250px',
             backgroundColor: 'rgba(255, 255, 255, 0.03)',
@@ -171,13 +172,14 @@ const Hero = ({ lang }) => {
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
+            cursor: 'pointer',
             boxShadow: '0 20px 40px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
             transition: 'all 0.3s ease'
           }}
-          className="hero-stat-card"
+          className="hero-stat-card clickable-card"
         >
-          <h4 style={{ fontSize: '26px', fontWeight: 800, color: 'var(--color-white)', margin: 0, letterSpacing: '-0.5px' }}>
-            {t.statRating}
+          <h4 style={{ fontSize: '26px', fontWeight: 800, color: 'var(--color-white)', margin: 0, letterSpacing: '-0.5px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+            4.9 <span style={{ color: '#FBB817' }}>★</span>
           </h4>
           <p style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', color: 'rgba(255, 255, 255, 0.55)', marginTop: '8px', marginBottom: 0, fontWeight: 700 }}>
             {t.statRatingLabel}
@@ -299,6 +301,17 @@ const Hero = ({ lang }) => {
         }
         .clickable-card:hover p {
           color: var(--color-white) !important;
+        }
+        @media (max-width: 768px) {
+          .hero-section {
+            height: auto !important;
+            min-height: 100svh !important;
+            padding: 100px 20px 60px 20px !important;
+          }
+          .hero-stats-row {
+            margin-top: 40px !important;
+            margin-bottom: 20px !important;
+          }
         }
       `}} />
     </section>
